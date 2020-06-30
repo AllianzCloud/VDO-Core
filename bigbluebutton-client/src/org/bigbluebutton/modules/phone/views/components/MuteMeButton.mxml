@@ -140,7 +140,11 @@ $Id: $
 			}
 
 			private function updateMuteMeBtn(placeholder:Boolean = false):void {
-				if (!allowMuteUnmute()) {
+      
+          var roomMuted = LiveMeeting.inst().meetingStatus.isMeetingMuted;
+      
+      
+				if (!allowMuteUnmute() || roomMuted) {
 					this.visible = this.includeInLayout = false;
 				} else {
 					this.visible = this.includeInLayout = true;
